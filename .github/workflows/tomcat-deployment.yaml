@@ -33,12 +33,12 @@ jobs:
         run: ls -l target/*.war
 
       - name: Rename the File Name with GITHUB_RUN_NUMBER
-        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{GITHUB_RUN_NUMBER}}.war
+        run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{github.run_number}}.war
 
       - name: Deploy the Build to Tomcat
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:
-          local: './target/apiservice-${{GITHUB_RUN_NUMBER}}.war'                                                 
+          local: './target/apiservice-${{github.run_number}}.war'                                                 
           remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'                                               
           host: ${{secrets.HOST}}                                  
           user: ${{secrets.USER}}
