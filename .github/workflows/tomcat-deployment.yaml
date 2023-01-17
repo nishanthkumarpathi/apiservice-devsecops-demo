@@ -38,7 +38,6 @@ jobs:
           local: './target/apiservice-0.0.1-SNAPSHOT.war'                                                 
           remote: 'C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\'                                               
           host: ${{secrets.HOST}}                                  
-          port: ${{secrets.PORT}}
           user: ${{secrets.USER}}
           password: ${{secrets.PASSWORD}}
           pre_upload: echo "This will be executed before the upload!"
