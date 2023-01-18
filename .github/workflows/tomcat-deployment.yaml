@@ -40,6 +40,9 @@ jobs:
         with:
           name: apiservice-${{github.run_number}}.war
           path: target/apiservice-${{github.run_number}}.war
+
+      - name: Display structure of uploaded files
+        run: ls -R
       # - name: Rename the File Name with GITHUB_RUN_NUMBER
       #   run: mv target/apiservice-0.0.1-SNAPSHOT.war target/apiservice-${{github.run_number}}.war
 
