@@ -26,6 +26,9 @@ jobs:
       - name: Fix the Permissions of mvnw command
         run: chmod +x mvnw
 
+      - name: replace the REPLACETHISWITHVERSIONUSINGGITHURUNNER in pom.xml with Build Number
+        run: sed -i "s/REPLACETHISWITHVERSIONUSINGGITHURUNNER/${{github.run_number}}/g" /src/main/java/com/bbk/api/apiservice/Version.java
+
       - name: replace the REPALCETHISVALUEINGITHUBACTIONS in pom.xml with Build Number
         run: sed -i "s/REPALCETHISVALUEINGITHUBACTIONS/${{github.run_number}}/g" pom.xml
 
@@ -80,3 +83,6 @@ jobs:
     steps:
       - name: Using CURL to verify the app
         run: curl -I http://${{secrets.HOST}}:8080/apiservice-${{github.run_number}}/actuator/health
+
+      - name: Calling the Version API
+        run: curl http://${{secrets.HOST}}:8080/apiservice-${{github.run_number}}/version
