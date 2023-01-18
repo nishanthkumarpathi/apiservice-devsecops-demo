@@ -54,6 +54,9 @@ jobs:
         with:
           name: apiservice-${{github.run_number}}.war
 
+      - name: Display structure of downloaded files
+        run: ls -R
+
       - name: Deploy the Build to Tomcat
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
         with:

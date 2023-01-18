@@ -10,5 +10,4 @@ public class Welcome {
 	public String welcome() {
 		return "Welcome to DevSecOps class";
 	}
-
 }
