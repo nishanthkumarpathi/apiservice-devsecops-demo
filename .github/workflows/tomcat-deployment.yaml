@@ -50,11 +50,9 @@ jobs:
     steps:
 
       - name: Download the Code
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: apiservice-${{github.run_number}}.war
-          path: target/apiservice-${{github.run_number}}.war
-
 
       - name: Deploy the Build to Tomcat
         uses: mdallasanta/ssh-scp-deploy@v1.2.0
