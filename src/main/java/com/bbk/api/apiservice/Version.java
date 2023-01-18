@@ -8,6 +8,6 @@ public class Version {
 
 	@GetMapping("/version")
 	public String version() {
-		return "REPLACETHISWITHVERSIONUSINGGITHURUNNER";
+		return "REPALCETHISVALUEINGITHUBACTIONS";
 	}
 }

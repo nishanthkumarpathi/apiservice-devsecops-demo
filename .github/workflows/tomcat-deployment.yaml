@@ -26,11 +26,14 @@ jobs:
       - name: Fix the Permissions of mvnw command
         run: chmod +x mvnw
 
-      - name: replace the REPLACETHISWITHVERSIONUSINGGITHURUNNER in pom.xml with Build Number
-        run: sed -i "s/REPLACETHISWITHVERSIONUSINGGITHURUNNER/${{github.run_number}}/g" /src/main/java/com/bbk/api/apiservice/Version.java
-
       - name: replace the REPALCETHISVALUEINGITHUBACTIONS in pom.xml with Build Number
         run: sed -i "s/REPALCETHISVALUEINGITHUBACTIONS/${{github.run_number}}/g" pom.xml
+
+      - name: Verify the Version file is available
+        run: ls -lrth src/main/java/com/bbk/api/apiservice/Version.java
+
+      - name: replace the REPALCETHISVALUEINGITHUBACTIONS in pom.xml with Build Number
+        run: sed -i "s/REPALCETHISVALUEINGITHUBACTIONS/${{github.run_number}}/g" src/main/java/com/bbk/api/apiservice/Version.java
 
       - name: Build the Code
         run: ./mvnw package
