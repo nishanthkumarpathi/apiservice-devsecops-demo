@@ -10,4 +10,9 @@ public class Version {
 	public String version() {
 		return "REPALCETHISVALUEINGITHUBACTIONS";
 	}
+
+	@GetMapping("/version2")
+	public String version2() {
+		return "REPALCETHISVALUEINGITHUBACTIONS";
+	}
 }
