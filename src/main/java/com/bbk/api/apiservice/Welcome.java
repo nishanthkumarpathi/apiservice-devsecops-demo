@@ -10,4 +10,11 @@ public class Welcome {
 	public String welcome() {
 		return "Welcome to DevSecOps class";
 	}
+
+	@GetMapping("/welcome1")
+	public String welcome1() {
+		return "Welcome to DevSecOps;
+	}
+
+
 }
